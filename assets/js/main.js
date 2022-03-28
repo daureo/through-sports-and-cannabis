@@ -1,7 +1,7 @@
 // Grab elements
 const selectElement = selector => {
     const element = document.querySelector(selector);
-    if(element) return element;
+    if (element) return element;
     throw new Error(`Something went wrong, make sure that ${selector} exists or is typed correctly.`);
 };
 
@@ -10,14 +10,14 @@ const selectElement = selector => {
 //Nav styles on scroll
 const scrollHeader = () => {
     const headerElement = selectElement('#header');
-    if(this.scrollY >= 15){
+    if (this.scrollY >= 15) {
         headerElement.classList.add('activated');
-       
-    }else{
+
+    } else {
         headerElement.classList.remove('activated');
-        
+
     }
-    
+
 };
 
 window.addEventListener('scroll', scrollHeader);
@@ -38,7 +38,7 @@ const searchCloseIcon = selectElement('#form-close-btn');
 const searchForm = selectElement('#search-form-container');
 
 const toggleSearch = () => {
-    searchForm.classList.toggle('activated');    
+    searchForm.classList.toggle('activated');
 }
 
 searchIcon.addEventListener('click', toggleSearch);
@@ -47,7 +47,7 @@ searchCloseIcon.addEventListener('click', toggleSearch);
 // -- Close the search form popup on ESC keypress
 
 window.addEventListener('keyup', event => {
-    if(event.key === 'Escape') searchForm.classList.remove('activated');
+    if (event.key === 'Escape') searchForm.classList.remove('activated');
 });
 
 // Switch theme/add to local storage
@@ -55,16 +55,16 @@ const bodyElement = document.body;
 const themeToggleBtn = selectElement('#theme-toggle-btn');
 const currenTheme = localStorage.getItem('currentTheme');
 
-if(currenTheme){
+if (currenTheme) {
     bodyElement.classList.add('light-theme');
 }
 
 themeToggleBtn.addEventListener('click', () => {
     bodyElement.classList.toggle('light-theme');
 
-    if(bodyElement.classList.contains('light-theme')){
+    if (bodyElement.classList.contains('light-theme')) {
         localStorage.setItem('currentTheme', 'themeActive');
-    }else{
+    } else {
         localStorage.removeItem('currentTheme');
     }
 })
